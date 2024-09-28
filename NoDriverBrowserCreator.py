@@ -10,18 +10,6 @@ import StaticMethods
 from Constants import Constants
 from nodriver import *
 
-def GetConfig(proxy):
-    toSandbox = not IsRoot()
-    toHeadless = False if platform.system() == "Linux" else True
-    # userAgent = getUserAgent()
-    config = Config()
-    config.headless = toHeadless
-    config.sandbox = toSandbox
-    # config.browser_args=[f'user-agent={userAgent}']
-    if proxy:
-        config._browser_args=[f'--proxy-server={proxy}']
-    return config
-
 def killPotentialZombies():
     PROCNAMES = ["google-chrome",
                 "chromium",
@@ -54,12 +42,22 @@ async def GetBrowser(proxy=""):
         await asyncio.sleep(20)
     try:
         globals.browserOpen = True
-        if platform.system() == "Linux":killPotentialZombies()
-        browser = await uc.start(config=GetConfig(proxy), retries = Constants.NODRIVER_BROWSER_CONNECT_RETRIES)
+        toSandbox = not IsRoot()
+        toHeadless = False if platform.system() == "Linux" else True
+        if proxy:
+            browser = await uc.start(sandbox=toSandbox,
+                                headless=toHeadless,
+                                browser_args=[f'--proxy-server={proxy}'],
+                                retries = Constants.NODRIVER_BROWSER_CONNECT_RETRIES)
+        else:
+            browser = await uc.start(sandbox=toSandbox,
+                                headless=toHeadless,
+                                retries = Constants.NODRIVER_BROWSER_CONNECT_RETRIES)
     except Exception as e:
         print(f"error creating browser in GetBrowser: {e}")
         if platform.system() == "Linux":killPotentialZombies()
         globals.browserOpen = False
+        await asyncio.sleep(10)
     return browser
 
 # Taken from https://github.com/ultrafunkamsterdam/nodriver/blob/1bb6003c7f0db4d3ec05fdf3fc8c8e0804260103/nodriver/core/config.py#L240
