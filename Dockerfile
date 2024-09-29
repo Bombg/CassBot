@@ -1,7 +1,5 @@
 # syntax=docker/dockerfile:1
 FROM python:3.11.3-slim
-ARG GITHUB_REPO="Bombg/SassBot"
-ARG GITHUB_BRANCH="flexiefae"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
