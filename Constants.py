@@ -57,7 +57,7 @@ class Constants:
     TIME_BEFORE_REVIEW_RESET = 300 # Time a whitelisted person has to review a confession before its added back to the queue
     
     # Nodriver default for retries is 4, but for slow machines this could require a lot more (raspberry pi 3b+ tested with 20 and still fails occasionally)
-    NODRIVER_BROWSER_CONNECT_RETRIES = 25
+    NODRIVER_BROWSER_CONNECT_RETRIES = 35
     NODRIVER_WAIT_MULTIPLIER = 10 # multiplier for nodriver waits. Make this longer for slower machines
 
     # Platform Check Timers - all in seconds
