@@ -66,7 +66,6 @@ def isModelOnline(ofUserName):
     # icon = returnDict.get("icon")
     # p.terminate()
     isOnline, title, thumbUrl, icon = uc.loop().run_until_complete(GetOnlineStatus(ofUserName))
-
     return isOnline, title, thumbUrl, icon
 
 def process(ofUserName, returnDict):
