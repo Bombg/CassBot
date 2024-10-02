@@ -5,7 +5,6 @@ import nodriver as uc
 import NoDriverBrowserCreator as ndb
 import globals
 from Constants import Constants
-import multiprocessing
 
 async def GetIcon(page:uc.Tab):
     icon = 'images/errIcon.png'
@@ -43,7 +42,7 @@ async def GetOnlineStatus(ofUserName):
         await page.save_screenshot("Ofscreenshot.jpg")
         isOnline = await IsLiveBadge(page)
         icon  = await GetIcon(page)
-        await page.close()
+        #await page.close()
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
         browser.stop()
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
@@ -53,24 +52,6 @@ async def GetOnlineStatus(ofUserName):
         globals.browserOpen = False
     return isOnline, title, thumbUrl, icon
 
-
 def isModelOnline(ofUserName):
-    # queue = multiprocessing.Manager()
-    # returnDict = queue.dict()
-    # p = multiprocessing.Process(target=process, args=(ofUserName, returnDict))
-    # p.start()
-    # p.join()
-    # isOnline = returnDict.get("isOnline")
-    # title = returnDict.get("title")
-    # thumbUrl = returnDict.get("thumbUrl")
-    # icon = returnDict.get("icon")
-    # p.terminate()
     isOnline, title, thumbUrl, icon = uc.loop().run_until_complete(GetOnlineStatus(ofUserName))
     return isOnline, title, thumbUrl, icon
-
-def process(ofUserName, returnDict):
-    isOnline, title, thumbUrl, icon = uc.loop().run_until_complete(GetOnlineStatus(ofUserName))
-    returnDict["isOnline"] = isOnline
-    returnDict["title"] = title
-    returnDict['thumbUrl'] = thumbUrl
-    returnDict['icon'] = icon
