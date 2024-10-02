@@ -23,9 +23,9 @@ async def GetOnlineStatus(fansUserName):
         isOnline = await IsLiveBadge(page)
         icon = await GetIcon(page)
         await page.save_screenshot("Fansscreenshot.jpg")
-        #await page.close()
+        await page.close()
         await asyncio.sleep(.5*Constants.NODRIVER_WAIT_MULTIPLIER)
-        browser.stop()
+        #browser.stop()
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
         globals.browserOpen = False
     except Exception as e:
