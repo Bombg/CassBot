@@ -44,7 +44,6 @@ async def GetBrowser(proxy=""):
         await asyncio.sleep(20)
     try:
         globals.browserOpen = True
-        KillUnconncetedBrowsers()
         await asyncio.sleep(1 * Constants.NODRIVER_WAIT_MULTIPLIER)
         toSandbox = not IsRoot()
         toHeadless = False if platform.system() == "Linux" else True
@@ -59,6 +58,7 @@ async def GetBrowser(proxy=""):
                                 retries = Constants.NODRIVER_BROWSER_CONNECT_RETRIES)
     except Exception as e:
         print(f"error creating browser in GetBrowser: {e}")
+        await asyncio.sleep(1 *  Constants.NODRIVER_WAIT_MULTIPLIER)
         KillUnconncetedBrowsers()
         await asyncio.sleep(1 *  Constants.NODRIVER_WAIT_MULTIPLIER)
         globals.browserOpen = False
