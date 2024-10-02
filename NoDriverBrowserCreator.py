@@ -41,7 +41,7 @@ def getUserAgent():
 
 async def GetBrowser(proxy=""):
     while globals.browserOpen:
-        await asyncio.sleep(20)
+        await asyncio.sleep(2 * Constants.NODRIVER_WAIT_MULTIPLIER)
     try:
         globals.browserOpen = True
         await asyncio.sleep(1 * Constants.NODRIVER_WAIT_MULTIPLIER)
