@@ -45,7 +45,7 @@ async def GetBrowser(proxy=""):
     try:
         globals.browserOpen = True
         KillUnconncetedBrowsers()
-        await asyncio.sleep(2)
+        await asyncio.sleep(1 * Constants.NODRIVER_WAIT_MULTIPLIER)
         toSandbox = not IsRoot()
         toHeadless = False if platform.system() == "Linux" else True
         if proxy:
@@ -60,8 +60,8 @@ async def GetBrowser(proxy=""):
     except Exception as e:
         print(f"error creating browser in GetBrowser: {e}")
         KillUnconncetedBrowsers()
+        await asyncio.sleep(1 *  Constants.NODRIVER_WAIT_MULTIPLIER)
         globals.browserOpen = False
-        await asyncio.sleep(10)
     return browser
 
 # Taken from https://github.com/ultrafunkamsterdam/nodriver/blob/1bb6003c7f0db4d3ec05fdf3fc8c8e0804260103/nodriver/core/config.py#L240
