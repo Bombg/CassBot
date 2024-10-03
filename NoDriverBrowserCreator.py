@@ -35,6 +35,7 @@ def getUserAgent():
             page = requests.get('https://jnrbsn.github.io/user-agents/user-agents.json')
             userAgentsJson = page.json()
             userAgent = random.choice(userAgentsJson)
+            page.close()
         except:
             print("Trouble getting user agent from jnrbsn's github. Using default")
         return userAgent
