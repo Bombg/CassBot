@@ -50,7 +50,7 @@ async def GetBrowser(proxy=""):
         if proxy:
             browser = await uc.start(sandbox=toSandbox,
                                 headless=toHeadless,
-                                browser_args=[f'--proxy-server={proxy}'],
+                                browser_args=[f'--proxy-server={proxy}','--mute-audio','--disable-3d-apis','--disable-dev-shm-usage','--disable-gpu','--disable-blink-features=AutomationControlled'],
                                 retries = Constants.NODRIVER_BROWSER_CONNECT_RETRIES)
         else:
             browser = await uc.start(sandbox=toSandbox,
