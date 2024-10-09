@@ -35,7 +35,7 @@ async def ClickEnterButton(page:uc.Tab):
         if enterBtn:
             await enterBtn.click()
             await asyncio.sleep(.5 * Constants.NODRIVER_WAIT_MULTIPLIER)
-    except :
+    except asyncio.exceptions.TimeoutError:
         pass
 
 async def IsLiveBadge(page:uc.Tab):
@@ -44,7 +44,7 @@ async def IsLiveBadge(page:uc.Tab):
         liveBadge = await page.find("live-badge bold font-size-sm", best_match=True)
         if liveBadge:
             live = True
-    except :
+    except asyncio.exceptions.TimeoutError:
         pass
     return live
 
@@ -57,6 +57,6 @@ async def GetIcon(page:uc.Tab):
         iconElement = await page.find("image-overlay-flex", best_match=True)
         await iconElement.save_screenshot( "images/fansIcon.jpg")
         icon = "images/fansIcon.jpg"
-    except:
+    except asyncio.exceptions.TimeoutError:
         pass
     return icon

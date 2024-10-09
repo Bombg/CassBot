@@ -38,7 +38,7 @@ async def GetIcon(page:uc.Tab):
         for element in imageElements:
             if element.attrs.get("src") and re.search(reString, element.attrs.get("src")):
                 icon = element.attrs.get("src")
-    except:
+    except asyncio.exceptions.TimeoutError:
         pass
     return icon
 
@@ -48,6 +48,6 @@ async def IsLiveBadge(page:uc.Tab):
         liveBadge = await page.find("g-avatar__icon m-live", best_match=True)
         if liveBadge:
             live = True
-    except:
+    except asyncio.exceptions.TimeoutError:
         pass
     return live
