@@ -28,6 +28,7 @@ def isModelOnline(twitchChannelName):
             time.sleep(1)
             isOnlineJson = twitchJson['@graph'][0]['publication']['isLiveBroadcast']
             if isOnlineJson and thumbUrl == thumbUrlReq.url:
+                thumbUrl = thumbUrl + "?" + str(int(time.time()))
                 isOnline = True
     except requests.exceptions.ConnectTimeout:
         logger.warning("connection timed out to Twitch. Bot detection or rate limited?")
