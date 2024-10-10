@@ -4,6 +4,10 @@ import json.decoder
 import time
 from Constants import Constants
 from NoDriverBrowserCreator import getUserAgent
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 def isModelOnline(cam4UserName):
     title = Constants.cam4DefaultTitle
@@ -22,7 +26,7 @@ def isModelOnline(cam4UserName):
                 icon = cam4Json['profileImageUrl']
             results.close()
         except json.decoder.JSONDecodeError:
-            print("cam4 api didn't respond?")
+            logger.warning("cam4 api didn't respond?")
     except requests.exceptions.ConnectTimeout:
-        print("connection timed out to cam4 api. Bot detection or rate limited?")
+        logger.warning("connection timed out to cam4 api. Bot detection or rate limited?")
     return isOnline, title, thumbUrl, icon

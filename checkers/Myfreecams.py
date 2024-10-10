@@ -2,6 +2,10 @@ import time
 import requests
 from Constants import Constants
 from bs4 import BeautifulSoup
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 def isModelOnline(mfcUserName):
     isOnline = False
@@ -18,5 +22,5 @@ def isModelOnline(mfcUserName):
             icon = soup.find(class_='avatar online').find("img")['src'] if soup.find(class_='avatar online') else soup.find(class_='avatar').find("img")['src']
         request.close()
     except requests.exceptions.ConnectTimeout:
-        print("connection timed out to share.myfreecams.com. Bot detection or rate limited?")
+        logger.warning("connection timed out to share.myfreecams.com. Bot detection or rate limited?")
     return isOnline, title, thumbUrl, icon

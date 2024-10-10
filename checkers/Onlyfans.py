@@ -5,6 +5,10 @@ import nodriver as uc
 import NoDriverBrowserCreator as ndb
 import globals
 from Constants import Constants
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 async def isModelOnline(ofUserName):
     isOnline = False
@@ -26,7 +30,7 @@ async def isModelOnline(ofUserName):
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
         globals.browserOpen = False
     except Exception as e:
-        print(f"Error getting browser for Onylyfans: {e}")
+        logger.warning(f"Error getting browser for Onylyfans: {e}")
         globals.browserOpen = False
     return isOnline, title, thumbUrl, icon
 

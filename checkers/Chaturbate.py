@@ -2,6 +2,10 @@ import time
 import requests
 from Constants import Constants
 import json.decoder 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 def isModelOnline(cbUserName):
     isOnline = False
@@ -30,5 +34,5 @@ def isModelOnline(cbUserName):
             iterations = iterations + 1
         onlineModels.close()
     except json.decoder.JSONDecodeError:
-        print("cb api didn't respond")
+        logger.warning("cb api didn't respond")
     return isOnline, title, thumbUrl, icon

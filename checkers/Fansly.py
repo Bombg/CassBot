@@ -3,6 +3,10 @@ import asyncio
 import nodriver as uc
 import NoDriverBrowserCreator as ndb
 import globals
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 async def isModelOnline(fansUserName):
     fansUrl = f"https://fansly.com/{fansUserName}"
@@ -25,7 +29,7 @@ async def isModelOnline(fansUserName):
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
         globals.browserOpen = False
     except Exception as e:
-        print(f"Error when getting browser for Fansly: {e}")
+        logger.warning(f"Error when getting browser for Fansly: {e}")
         globals.browserOpen = False
     return isOnline, title, thumbUrl, icon
 
