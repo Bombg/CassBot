@@ -35,8 +35,8 @@ def isModelOnline(cbUserName):
                 iterations = iterations + 1
         except json.decoder.JSONDecodeError:
             logger.warning("cb api didn't respond")
-    except requests.exceptions.ConnectTimeout:
-        logger.warning("connection timed out to Chaturbate. Bot detection or rate limited?")
+    except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError):
+        logger.warning("connection timed out or aborted with Chaturbate. Bot detection or rate limited?")
     except requests.exceptions.SSLError:
         logger.warning("SSL Error when attempting to connect to Chaturbate")
     return isOnline, title, thumbUrl, icon
