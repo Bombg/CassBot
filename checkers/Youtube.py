@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import logging
 from Constants import Constants
+import time
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
@@ -23,7 +24,7 @@ def isModelOnline(ytUserName):
             iconJson = getIconJson(scripts)
             status = liveJson["playabilityStatus"]["status"]
             title = liveJson["videoDetails"]['title']
-            thumbUrl = liveJson['videoDetails']['thumbnail']['thumbnails'][4]['url']
+            thumbUrl = liveJson['videoDetails']['thumbnail']['thumbnails'][4]['url'] + "?" + str(int(time.time()))
             if live and status != "LIVE_STREAM_OFFLINE": 
                 online = True
             if iconJson:

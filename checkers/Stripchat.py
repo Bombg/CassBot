@@ -24,7 +24,7 @@ def isModelOnline(scUserName):
                 isOnline = True if scJson['model']['status']  != 'off' else False
                 icon = scJson['model']['avatarUrl']
                 title = scJson['goal']['description'] if scJson['goal']['description'] else Constants.scDefaultTitle
-                thumbUrl = scJson['model']['previewUrl']
+                thumbUrl = scJson['model']['previewUrl'] + "?" + str(int(time.time()))
             except json.decoder.JSONDecodeError:
                 pass
     except requests.exceptions.ConnectTimeout:
