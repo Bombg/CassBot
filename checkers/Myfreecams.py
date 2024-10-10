@@ -20,7 +20,8 @@ def isModelOnline(mfcUserName):
         if vidPreview:
             isOnline = True
             icon = soup.find(class_='avatar online').find("img")['src'] if soup.find(class_='avatar online') else soup.find(class_='avatar').find("img")['src']
-        request.close()
     except requests.exceptions.ConnectTimeout:
         logger.warning("connection timed out to share.myfreecams.com. Bot detection or rate limited?")
+    except requests.exceptions.SSLError:
+        logger.warning("SSL Error when attempting to connect to MyFreeCams")
     return isOnline, title, thumbUrl, icon

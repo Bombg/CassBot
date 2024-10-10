@@ -24,9 +24,10 @@ def isModelOnline(cam4UserName):
             if cam4Json['online']:
                 isOnline = True
                 icon = cam4Json['profileImageUrl']
-            results.close()
         except json.decoder.JSONDecodeError:
             logger.warning("cam4 api didn't respond?")
     except requests.exceptions.ConnectTimeout:
         logger.warning("connection timed out to cam4 api. Bot detection or rate limited?")
+    except requests.exceptions.SSLError:
+        logger.warning("SSL Error when attempting to connect to Cam4")
     return isOnline, title, thumbUrl, icon

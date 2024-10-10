@@ -23,7 +23,8 @@ def isModelOnline(epUserName):
         title =  profileJson["props"]["pageProps"]["dehydratedState"]["queries"][0]["state"]["data"]["title"]
         thumbUrl = profileJson["props"]["pageProps"]["dehydratedState"]["queries"][0]["state"]["data"]["ss"]
         icon =  profileJson["props"]["pageProps"]["dehydratedState"]["queries"][0]["state"]["data"]["avatar"]
-        request.close()
     except requests.exceptions.ConnectTimeout:
         logger.warning("connection timed out to eplay.com. Bot detection or rate limited?")
+    except requests.exceptions.SSLError:
+        logger.warning("SSL Error when attempting to connect to Eplay")
     return isOnline, title, thumbUrl, icon
