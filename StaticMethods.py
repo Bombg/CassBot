@@ -131,7 +131,7 @@ def getEmbedImage() -> str:
     if not twImgQue and twImgList:
         twImgQue = twImgList
     if not twImgList:
-        imageSrc = 'images/twitErrImg.jpg'
+        imageSrc = Constants.defaultThumbnail
         logger.info("adding default image for embed since nothing is on the image list.")
     elif url:
         imageSrc = url

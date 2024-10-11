@@ -208,3 +208,6 @@ class Constants:
     # Icon in this case is the small image that shows in the top left of the imbed before the streamer's name for that platform
     # This is used if an avatar/icon can't be found on a platform, otherwise the platform's version will be used
     defaultIcon = 'images/errIcon.png'
+
+    # This thumbnail is used if there is no thumbnail for a platform AND there is nothing in the image list
+    defaultThumbnail = 'images/twitErrImg.jpg'
