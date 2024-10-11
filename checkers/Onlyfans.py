@@ -6,6 +6,7 @@ import NoDriverBrowserCreator as ndb
 import globals
 from Constants import Constants
 import logging
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
@@ -14,7 +15,7 @@ async def isModelOnline(ofUserName):
     isOnline = False
     ofUrl = f"https://onlyfans.com/{ofUserName}"
     title = Constants.ofDefaultTitle
-    thumbUrl = ""
+    tempThumbUrl = ""
     icon = Constants.defaultIcon
     try:
         browser = await ndb.GetBrowser(proxy=Constants.OF_PROXY)
@@ -32,6 +33,7 @@ async def isModelOnline(ofUserName):
     except Exception as e:
         logger.warning(f"Error getting browser for Onylyfans: {e}")
         globals.browserOpen = False
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.ofThumbnail)
     return isOnline, title, thumbUrl, icon
 
 async def GetIcon(page:uc.Tab):

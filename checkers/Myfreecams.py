@@ -3,6 +3,7 @@ import requests
 from Constants import Constants
 from bs4 import BeautifulSoup
 import logging
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
@@ -10,7 +11,7 @@ logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 def isModelOnline(mfcUserName):
     isOnline = False
     title = Constants.mfcDefaultTitle
-    thumbUrl = ""
+    tempThumbUrl = ""
     icon = Constants.defaultIcon
     try:
         request = requests.get(f"https://share.myfreecams.com/{mfcUserName}")
@@ -24,4 +25,5 @@ def isModelOnline(mfcUserName):
         logger.warning("connection timed out to share.myfreecams.com. Bot detection or rate limited?")
     except requests.exceptions.SSLError:
         logger.warning("SSL Error when attempting to connect to MyFreeCams")
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.mfcThumbnail)
     return isOnline, title, thumbUrl, icon

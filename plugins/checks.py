@@ -45,7 +45,7 @@ async def platformChecker(isOnlineFunc: Callable,platformNotifFunc: Callable, us
         thumbUrl = ""
         title = "NoTitle"
         isOnline = False
-        icon = 'images/errIcon.png'
+        icon = Constants.defaultIcon
     isRerun = False
     db = Database()
     lastOnlineMessage,streamStartTime,streamEndTime = db.getPlatformAccountsRowValues(platformName,userName)

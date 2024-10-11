@@ -6,12 +6,13 @@ import NoDriverBrowserCreator as ndb
 import globals
 from Constants import Constants
 import logging
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 async def isModelOnline(kickUserName):
-    isOnline, title, thumbUrl, icon = setDefaultStreamValues()
+    isOnline, title, tempThumbUrl, icon = setDefaultStreamValues()
     apiUrl = f"https://kick.com/api/v1/channels/{kickUserName}"
     try:
         browser = await ndb.GetBrowser(proxy=Constants.KICK_PROXY)
@@ -25,7 +26,7 @@ async def isModelOnline(kickUserName):
             logger.warning("error with kick checker. user is banned,wrong username supplied, or cloudflare bot detection")
         else:
             jsonText = content[1].split('</body></html>')
-            isOnline, title, thumbUrl, icon = getStreamInfo(jsonText)
+            isOnline, title, tempThumbUrl, icon = getStreamInfo(jsonText)
         await page.close()
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
         browser.stop()
@@ -34,6 +35,7 @@ async def isModelOnline(kickUserName):
     except Exception as e:
         logger.warning(f"error getting browser for Kick: {e}")
         globals.browserOpen = False
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.kickThumbnail)
     return isOnline, title, thumbUrl, icon
 
 def setDefaultStreamValues():

@@ -211,3 +211,18 @@ class Constants:
 
     # This thumbnail is used if there is no thumbnail for a platform AND there is nothing in the image list
     defaultThumbnail = 'images/twitErrImg.jpg'
+
+    # Leave empty strings if you want to use default thumbnail behavior; which is: (1)pull thumbnail from platform, (2)if it doesn't exist use image from image list, (3)if list empty use defaultThumbnail
+    # Add your own image path/url if you want to exclusively use the same image over and over for a specific platform's thumbnail
+    # If you want thumbnails to only come from the image list, make the string equal to LIST i.e cbThumbnail = "LIST" . Useful if you don't want NSFW thumbnails in alerts
+    kickThumbnail = ""
+    fansThumbnail = ""
+    ofThumbnail = ""
+    cbThumbnail = "LIST"
+    ytThumbnail = ""
+    twitchThumbnail = ""
+    cam4Thumbnail = ""
+    mfcThumbnail = ""
+    bcThumbnail = ""
+    scThumbnail = ""
+    epThumbnail = ""

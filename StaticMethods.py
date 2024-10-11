@@ -265,3 +265,14 @@ def safeRebootServer() -> None:
     time.sleep(300)
     logger.warning("Scheduled restart is happening.\nSleeping for 300 seconds before restart, in case something goes horribly wrong")
     rebootServer()
+
+def GetThumbnail(tempThumbUrl, constantsThumbnail):
+    thumbnail = ""
+    if constantsThumbnail == "LIST":
+        thumbnail = ""
+    elif constantsThumbnail:
+        thumbnail = constantsThumbnail
+    elif tempThumbUrl:
+        thumbnail = tempThumbUrl
+    
+    return thumbnail

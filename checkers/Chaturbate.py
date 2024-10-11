@@ -3,6 +3,7 @@ import requests
 from Constants import Constants
 import json.decoder 
 import logging
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
@@ -10,7 +11,7 @@ logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 def isModelOnline(cbUserName):
     isOnline = False
     title = "placeholder cb title"
-    thumbUrl = ""
+    tempThumbUrl = ""
     icon = Constants.defaultIcon
     try:
         onlineModels = requests.get(Constants.cbApiUrl)
@@ -26,7 +27,7 @@ def isModelOnline(cbUserName):
                     if result['username'] == cbUserName:
                         isOnline = True
                         title = result['room_subject']
-                        #thumbUrl = result['image_url'] + "?" + str(int(time.time()))
+                        tempThumbUrl = result['image_url'] + "?" + str(int(time.time()))
                         break
                 onlineModels = requests.get(Constants.cbApiUrl + f"&offset={tempLimit}")
                 time.sleep(3)
@@ -39,4 +40,5 @@ def isModelOnline(cbUserName):
         logger.warning("connection timed out or aborted with Chaturbate. Bot detection or rate limited?")
     except requests.exceptions.SSLError:
         logger.warning("SSL Error when attempting to connect to Chaturbate")
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.cbThumbnail)
     return isOnline, title, thumbUrl, icon

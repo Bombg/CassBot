@@ -4,6 +4,7 @@ import json
 import logging
 from Constants import Constants
 import time
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
@@ -12,7 +13,7 @@ def isModelOnline(ytUserName):
     ytUrl = f"https://www.youtube.com/@{ytUserName}/live"
     online = False
     title =  "placeholder youtube title"
-    thumbUrl = ""
+    tempThumbUrl = ""
     icon = Constants.defaultIcon
     try:
         page = requests.get(ytUrl, cookies={'CONSENT': 'YES+42'})
@@ -24,7 +25,7 @@ def isModelOnline(ytUserName):
             iconJson = getIconJson(scripts)
             status = liveJson["playabilityStatus"]["status"]
             title = liveJson["videoDetails"]['title']
-            thumbUrl = liveJson['videoDetails']['thumbnail']['thumbnails'][4]['url'] + "?" + str(int(time.time()))
+            tempThumbUrl = liveJson['videoDetails']['thumbnail']['thumbnails'][4]['url'] + "?" + str(int(time.time()))
             if live and status != "LIVE_STREAM_OFFLINE": 
                 online = True
             if iconJson:
@@ -33,6 +34,7 @@ def isModelOnline(ytUserName):
         logger.warning("connection timed out to Youtube. Bot detection or rate limited?")
     except requests.exceptions.SSLError:
         logger.warning("SSL Error when attempting to connect to Youtube")
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.ytThumbnail)
     return online,title, thumbUrl, icon
 
 def getIconJson(scripts):

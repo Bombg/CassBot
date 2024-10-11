@@ -4,13 +4,14 @@ from bs4 import BeautifulSoup
 import time
 import logging
 from Constants import Constants
+from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 def isModelOnline(twitchChannelName):
     title = "placeholder twitch title"
-    thumbUrl = ''
+    tempThumbUrl = ''
     isOnline = False
     icon = Constants.defaultIcon
     try:
@@ -20,20 +21,21 @@ def isModelOnline(twitchChannelName):
         twitchJson = getTwitchJson(soup)
         if twitchJson:
             title = twitchJson['@graph'][0]['description']
-            thumbUrl = twitchJson['@graph'][0]['thumbnailUrl'][2]
+            tempThumbUrl = twitchJson['@graph'][0]['thumbnailUrl'][2]
             reticon = getIcon(soup)
             if reticon:
                 icon = reticon
-            thumbUrlReq = requests.get(thumbUrl,allow_redirects=True)
+            thumbUrlReq = requests.get(tempThumbUrl,allow_redirects=True)
             time.sleep(1)
             isOnlineJson = twitchJson['@graph'][0]['publication']['isLiveBroadcast']
-            if isOnlineJson and thumbUrl == thumbUrlReq.url:
-                thumbUrl = thumbUrl + "?" + str(int(time.time()))
+            if isOnlineJson and tempThumbUrl == thumbUrlReq.url:
+                tempThumbUrl = tempThumbUrl + "?" + str(int(time.time()))
                 isOnline = True
     except requests.exceptions.ConnectTimeout:
         logger.warning("connection timed out to Twitch. Bot detection or rate limited?")
     except requests.exceptions.SSLError:
         logger.warning("SSL Error when attempting to connect to Twitch")
+    thumbUrl = GetThumbnail(tempThumbUrl, Constants.twitchThumbnail)
     return isOnline, title, thumbUrl, icon
 
 def getTwitchJson(soup):

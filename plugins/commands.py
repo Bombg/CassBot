@@ -32,7 +32,7 @@ async def testNotification(ctx: tanjun.abc.SlashContext, rest: alluka.Injected[h
                                     "https://www.google.com/", 
                                     'images/platformImages/twitchImage.png', 
                                     Constants.twitchEmbedColor, 
-                                    'images/errIcon.png', 
+                                    Constants.defaultIcon, 
                                     "TestUserName"
                                 )
     task = asyncio.create_task(embedMaker.getEmbed())
