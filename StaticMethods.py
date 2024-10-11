@@ -258,6 +258,7 @@ def timeToSeconds(newTime: float) -> int:
     return totalTime
 
 def rebootServer() -> None:
+    logger.critical("Sassbot server rebooting from restart command or fd leak detection or scheduled restart based off TIME_BEFORE_BOT_RESTART")
     os.system('reboot')
 
 def safeRebootServer() -> None:
