@@ -13,7 +13,7 @@ def isModelOnline(cam4UserName):
     title = Constants.cam4DefaultTitle
     thumbUrl = ''
     isOnline = False
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     agent = getUserAgent()
     try:
         headers = {"User-Agent": agent}

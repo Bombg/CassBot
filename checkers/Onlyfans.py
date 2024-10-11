@@ -15,7 +15,7 @@ async def isModelOnline(ofUserName):
     ofUrl = f"https://onlyfans.com/{ofUserName}"
     title = Constants.ofDefaultTitle
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         browser = await ndb.GetBrowser(proxy=Constants.OF_PROXY)
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)
@@ -35,7 +35,7 @@ async def isModelOnline(ofUserName):
     return isOnline, title, thumbUrl, icon
 
 async def GetIcon(page:uc.Tab):
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     reString = r'^https:\/\/.+avatar.jpg$'
     try:
         imageElements = await page.find_all("data-v-325c6981")

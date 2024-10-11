@@ -12,7 +12,7 @@ def isModelOnline(epUserName):
     isOnline = False
     title = Constants.epDefaultTitle
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         request = requests.get(f"https://eplay.com/{epUserName}")
         time.sleep(1)

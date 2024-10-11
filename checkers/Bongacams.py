@@ -13,7 +13,7 @@ def isModelOnline(bcUserName):
     title = Constants.bcDefaultTitle
     thumbUrl = ''
     isOnline = False
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     agent = getUserAgent()
     headers = {"User-Agent": agent}
     try:

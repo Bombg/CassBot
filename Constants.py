@@ -204,3 +204,7 @@ class Constants:
     bcBelowTitleText =  f"{streamerName} is now live on BongaCams!"
     scBelowTitleText =  f"{streamerName} is now live on StripChat!"
     epBelowTitleText =  f"{streamerName} is now live on ePlay!"
+
+    # Icon in this case is the small image that shows in the top left of the imbed before the streamer's name for that platform
+    # This is used if an avatar/icon can't be found on a platform, otherwise the platform's version will be used
+    defaultIcon = 'images/errIcon.png'

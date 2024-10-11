@@ -11,7 +11,7 @@ def isModelOnline(mfcUserName):
     isOnline = False
     title = Constants.mfcDefaultTitle
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         request = requests.get(f"https://share.myfreecams.com/{mfcUserName}")
         time.sleep(1)

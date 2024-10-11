@@ -12,7 +12,7 @@ def isModelOnline(scUserName):
     title = Constants.scDefaultTitle
     thumbUrl = ''
     isOnline = False
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     agent = getUserAgent()
     headers = {"User-Agent": agent}
     try:

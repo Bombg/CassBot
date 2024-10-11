@@ -40,7 +40,7 @@ def setDefaultStreamValues():
     isOnline = False
     title = "place holder kick title, this should never show up unless coder fucked up"
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     return isOnline, title, thumbUrl, icon
 
 def getStreamInfo(jsonText):

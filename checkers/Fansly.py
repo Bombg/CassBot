@@ -13,7 +13,7 @@ async def isModelOnline(fansUserName):
     thumbUrl = ""
     title = Constants.fansDefaultTitle
     isOnline = False
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         browser = await ndb.GetBrowser(proxy=Constants.FANS_PROXY)
         await asyncio.sleep(1*Constants.NODRIVER_WAIT_MULTIPLIER)

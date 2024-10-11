@@ -12,7 +12,7 @@ def isModelOnline(twitchChannelName):
     title = "placeholder twitch title"
     thumbUrl = ''
     isOnline = False
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         page = requests.get(f'https://www.twitch.tv/{twitchChannelName}')
         time.sleep(1)

@@ -11,7 +11,7 @@ def isModelOnline(cbUserName):
     isOnline = False
     title = "placeholder cb title"
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         onlineModels = requests.get(Constants.cbApiUrl)
         time.sleep(3)

@@ -13,7 +13,7 @@ def isModelOnline(ytUserName):
     online = False
     title =  "placeholder youtube title"
     thumbUrl = ""
-    icon = 'images/errIcon.png'
+    icon = Constants.defaultIcon
     try:
         page = requests.get(ytUrl, cookies={'CONSENT': 'YES+42'})
         soup = BeautifulSoup(page.content, "html.parser")
