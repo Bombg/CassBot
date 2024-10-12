@@ -15,7 +15,7 @@ from datetime import timedelta
 import utils.DataGrapher as DataGrapher
 import hikari
 import re
-import MiruViews
+import utils.MiruViews as MiruViews
 import alluka
 import asyncio
 from utils.EmbedCreator import EmbedCreator
