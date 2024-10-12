@@ -1,6 +1,6 @@
 import miru
 import hikari
-from Database import Database
+from utils.Database import Database
 from datetime import timedelta
 import plugins.commands as commands
 try:

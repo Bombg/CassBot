@@ -4,7 +4,7 @@ try:
     from AppConstants import Constants as Constants
 except ImportError:
     from DefaultConstants import Constants as Constants
-from Database import Database
+from utils.Database import Database
 import time
 import hikari
 

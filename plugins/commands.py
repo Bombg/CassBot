@@ -6,7 +6,7 @@ try:
     from AppConstants import Constants as Constants
 except ImportError:
     from DefaultConstants import Constants as Constants
-from Database import Database
+from utils.Database import Database
 from datetime import datetime
 from decorators.Permissions import Permissions
 from decorators.CommandLogger import CommandLogger

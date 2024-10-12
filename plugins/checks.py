@@ -21,11 +21,9 @@ import globals
 import time
 import StaticMethods
 from Notifications import Notifications
-from Database import Database
+from utils.Database import Database
 from typing import Callable
 from datetime import date
-import datetime
-from datetime import timedelta
 import inspect
 import logging
 
