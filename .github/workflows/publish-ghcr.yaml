@@ -8,12 +8,8 @@ on:
 
 jobs:
   include:
-    - if: ${{ github.ref_name == 'master' }}
-      env: 
-      - IMAGEVER="latest"
-    - if: ${{ github.ref_name == 'flexiefae' }}
-      env:
-      - IMAGEVER="experimental"
+    env: 
+    - IMAGEVER=${{ github.ref_name == 'master' && 'latest' || 'experimental' }}
   build-and-push:
     runs-on: ubuntu-latest
     steps:
