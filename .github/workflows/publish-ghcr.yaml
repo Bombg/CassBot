@@ -5,11 +5,10 @@ on:
     branches:
       - master
       - flexiefae
+env: 
+  - IMAGEVER: ${{ github.ref_name == 'master' && 'latest' || 'experimental' }}
 
 jobs:
-  include:
-    env: 
-    - IMAGEVER=${{ github.ref_name == 'master' && 'latest' || 'experimental' }}
   build-and-push:
     runs-on: ubuntu-latest
     steps:
@@ -28,5 +27,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/bombg/sassbot:${IMAGEVER}
+          tags: ghcr.io/bombg/sassbot:$IMAGEVER
           platforms: linux/arm64, linux/amd64
