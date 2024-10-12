@@ -183,11 +183,11 @@ async def changeAvatar(rest: alluka.Injected[hikari.impl.RESTClientImpl]) -> Non
     onTime, offTime, totalOnTime = db.getStreamTableValues()
     hours, minutes = StaticMethods.timeToHoursMinutes(offTime)
     if online and not globals.normalAvtar:
-        await rest.edit_my_user(avatar = 'images/avatars/calmStreamer.png')
+        await rest.edit_my_user(avatar = Constants.calmAvatar)
         logger.info(f"changed avatar to good {Constants.streamerName}")
         globals.normalAvtar = True
     if not online and globals.normalAvtar and hours >= Constants.MIN_TIME_BEFORE_AVATAR_CHANGE and offTime != 0:
-        await rest.edit_my_user(avatar = 'images/avatars/pissedStreamer.png')
+        await rest.edit_my_user(avatar = Constants.pissedAvatar)
         logger.info(f"changed avatar to bad {Constants.streamerName}")
         globals.normalAvtar = False
 

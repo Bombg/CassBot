@@ -1,4 +1,5 @@
 class Constants:
+    # COPY THIS FILE AND CREATE YOUR OWN VERSION NAMED AppConstants.py THAT WAY YOU CAN PULL CHANGES WITHOUT OVERWRITING SETTINGS
     TEST_SERVER = False
     SASSBOT_LOG_LEVEL = 10 # DEBUG = 10, INFO = 20, WARNING = 30, ERROR = 40, CRITICAL = 50
     OTHER_LIBRARIES_LOG_LEVEL = 20 # DEBUG = 10, INFO = 20, WARNING = 30, ERROR = 40, CRITICAL = 50
@@ -44,10 +45,6 @@ class Constants:
         
         CONFESSION_COMMAND_ID = 1159321755270250571
         CONFESS_REVIEW_COMMAND_ID = 1159321755270250570
-
-        KICK_PROXY = ""
-        FANS_PROXY = "127.0.0.1:8888"
-        OF_PROXY = ""
 
         KICK_PROXY = ""
         FANS_PROXY = "172.18.0.2:8888"
@@ -209,13 +206,6 @@ class Constants:
     scBelowTitleText =  f"{streamerName} is now live on StripChat!"
     epBelowTitleText =  f"{streamerName} is now live on ePlay!"
 
-    # Icon in this case is the small image that shows in the top left of the imbed before the streamer's name for that platform
-    # This is used if an avatar/icon can't be found on a platform, otherwise the platform's version will be used
-    defaultIcon = 'images/errIcon.png'
-
-    # This thumbnail is used if there is no thumbnail for a platform AND there is nothing in the image list
-    defaultThumbnail = 'images/twitErrImg.jpg'
-
     # Leave empty strings if you want to use default thumbnail behavior; which is: (1)pull thumbnail from platform, (2)if it doesn't exist use image from image list, (3)if list empty use defaultThumbnail
     # Add your own image path/url if you want to exclusively use the same image over and over for a specific platform's thumbnail
     # If you want thumbnails to only come from the image list, make the string equal to LIST i.e cbThumbnail = "LIST" . Useful if you don't want NSFW thumbnails in alerts
@@ -230,3 +220,15 @@ class Constants:
     bcThumbnail = ""
     scThumbnail = ""
     epThumbnail = ""
+
+    # Icon in this case is the small image that shows in the top left of the imbed before the streamer's name for that platform
+    # This is used if an avatar/icon can't be found on a platform, otherwise the platform's version will be used
+    defaultIcon = 'images/errIcon.png'
+
+    # This thumbnail is used if there is no thumbnail for a platform AND there is nothing in the image list
+    defaultThumbnail = 'images/twitErrImg.jpg'
+
+    # Calm is default bot avatar, pissed is what it changes to after MIN_TIME_BEFORE_AVATAR_CHANGE has been met
+    # Make them the same image if you don't want the feature to change anything 
+    calmAvatar = 'images/avatars/calmStreamer.png'
+    pissedAvatar = 'images/avatars/pissedStreamer.png'
