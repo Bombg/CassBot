@@ -9,7 +9,7 @@ services:
   sassbot:
     image: ghcr.io/bombg/sassbot:latest #ghcr.io/bombg/sassbot:latest-arm for arm processors i.e. Raspberry Pi
     volumes:
-      - /home/bombg/Repos/SassBot/Constants.py:/opt/SassBot/AppConstants.py
+      - /home/bombg/Repos/SassBot/AppConstants.py:/opt/SassBot/Constants.py
       - /home/bombg/Repos/SassBot/secrets:/opt/SassBot/secrets
       - /home/bombg/Repos/SassBot/sassBot.db:/opt/SassBot/sassBot.db
       - /home/bombg/Repos/SassBot/Fae/FaeIcon.png:/opt/SassBot/images/errIcon.png
