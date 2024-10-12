@@ -6,7 +6,7 @@ on:
       - master
       - flexiefae
 env: 
-  - IMAGEVER: ${{ github.ref_name == 'master' && 'latest' || 'experimental' }}
+  IMAGEVER: ${{ github.ref_name == 'master' && 'latest' || 'experimental' }}
 
 jobs:
   build-and-push:
