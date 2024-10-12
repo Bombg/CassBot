@@ -2,7 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import logging
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 import time
 from StaticMethods import GetThumbnail
 

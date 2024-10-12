@@ -3,7 +3,10 @@ import json
 from bs4 import BeautifulSoup
 import time
 import logging
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)

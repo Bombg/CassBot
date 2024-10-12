@@ -1,6 +1,9 @@
 import time
 import requests
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from bs4 import BeautifulSoup
 import json
 import logging

@@ -9,7 +9,10 @@ import checkers.Myfreecams as MFC
 import checkers.Bongacams as BC
 import checkers.Stripchat as SC
 import checkers.Eplay as EP
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 import checkers.Twitch as Twitch
 import checkers.Kick as Kick
 import checkers.Youtube as Youtube

@@ -2,7 +2,10 @@ import os
 import platform
 import logging
 from pyvirtualdisplay import Display
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from bot import build_bot
 import colorlog
 

@@ -2,7 +2,10 @@ import requests
 import json
 import json.decoder 
 import time
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from NoDriverBrowserCreator import getUserAgent
 import logging
 from StaticMethods import GetThumbnail

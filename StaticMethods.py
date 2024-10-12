@@ -4,7 +4,10 @@ from Database import Database
 import globals
 import base64
 import datetime
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from datetime import timedelta
 from datetime import date
 import re

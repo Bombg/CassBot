@@ -2,7 +2,10 @@ import hikari.errors
 import tanjun
 import StaticMethods
 import time
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 from Database import Database
 from datetime import datetime
 from decorators.Permissions import Permissions

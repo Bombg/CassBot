@@ -1,10 +1,12 @@
-from Constants import Constants
+try:
+    from AppConstants import Constants as Constants
+except ImportError:
+    from DefaultConstants import Constants as Constants
 import re
 import asyncio
 import nodriver as uc
 import NoDriverBrowserCreator as ndb
 import globals
-from Constants import Constants
 import logging
 from StaticMethods import GetThumbnail
 
