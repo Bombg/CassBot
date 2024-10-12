@@ -4,7 +4,7 @@ except ImportError:
     from DefaultConstants import Constants as Constants
 import asyncio
 import nodriver as uc
-import NoDriverBrowserCreator as ndb
+import utils.NoDriverBrowserCreator as ndb
 import globals
 import logging
 from utils.StaticMethods import GetThumbnail

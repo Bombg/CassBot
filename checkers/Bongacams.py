@@ -6,7 +6,7 @@ try:
     from AppConstants import Constants as Constants
 except ImportError:
     from DefaultConstants import Constants as Constants
-from NoDriverBrowserCreator import getUserAgent
+from utils.NoDriverBrowserCreator import getUserAgent
 import logging
 from utils.StaticMethods import GetThumbnail
 

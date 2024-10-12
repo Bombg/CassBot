@@ -2,7 +2,7 @@ import asyncio
 import nodriver as uc
 import json
 import time
-import NoDriverBrowserCreator as ndb
+import utils.NoDriverBrowserCreator as ndb
 import globals
 try:
     from AppConstants import Constants as Constants
