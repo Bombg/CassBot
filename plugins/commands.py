@@ -12,7 +12,7 @@ from decorators.Permissions import Permissions
 from decorators.CommandLogger import CommandLogger
 from datetime import date
 from datetime import timedelta
-import DataGrapher
+import utils.DataGrapher as DataGrapher
 import hikari
 import re
 import MiruViews
