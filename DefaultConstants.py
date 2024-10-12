@@ -26,24 +26,28 @@ class Constants:
         FANS_PROXY = "192.168.50.253:8888"
         OF_PROXY = ""
     else:
-        GUILD_ID = 1174994456181755934 #Guild ID of the discord server
-        whiteListedRoleIDs = [145802742647095296,1174591890608369664,1176074001362190346,1176080712865169429,1176080119534727178] # IDs of Roles you wish to be white listed for some commands. You can also add user IDs if you want to add an individual without a role
+        GUILD_ID =1058859922219081778 #Guild ID of the discord server
+        whiteListedRoleIDs = [1062179283705020486,145802742647095296,1100148453792813086,245364417783398400] # IDs of Roles you wish to be white listed for some commands. You can also add user IDs if you want to add an individual without a role
         # Channel ID the bot will post notifications to
-        KICK_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        CB_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        FANS_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        OF_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        YT_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        TWITCH_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        CAM4_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        MFC_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        BC_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        SC_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        EP_NOTIFICATION_CHANNEL_ID = 1176083320157786143
-        CONFESSTION_CHANNEL_ID = 1174994457561665598
+        KICK_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        CB_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        FANS_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        OF_NOTIFICATION_CHANNEL_ID = 1061931918414852146
+        YT_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        TWITCH_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        CAM4_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        MFC_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        BC_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        SC_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        EP_NOTIFICATION_CHANNEL_ID = 1268796965743886448
+        CONFESSTION_CHANNEL_ID = 1158240422997528637
         
-        CONFESSION_COMMAND_ID = 1287575235910045699
-        CONFESS_REVIEW_COMMAND_ID = 1287575235910045698
+        CONFESSION_COMMAND_ID = 1159321755270250571
+        CONFESS_REVIEW_COMMAND_ID = 1159321755270250570
+
+        KICK_PROXY = ""
+        FANS_PROXY = "127.0.0.1:8888"
+        OF_PROXY = ""
 
         KICK_PROXY = ""
         FANS_PROXY = "172.18.0.2:8888"
@@ -84,7 +88,7 @@ class Constants:
     PERCENTAGE_OF_MAX = 0.85 # Percent of maximum users online before a smart alert goes off
     SECONDS_BETWEEN_SMART_ALERTS = 21600 # minimum number of seconds before another smart alert goes off
 
-    RECORD_KEEPING_START_DATE = 1727022585 #Epoch time in seconds when you started using this bot Use: https://www.epochconverter.com/
+    RECORD_KEEPING_START_DATE = 1694340841 #Epoch time in seconds when you started using this bot Use: https://www.epochconverter.com/
 
     PIN_TIME_LONG = 4 # number in hours. 
     PIN_TIME_SHORT = 1 # same as above but this is used for images added via rebroadcast-image command
@@ -126,23 +130,23 @@ class Constants:
     EP_RERUN_ROLES_TO_PING = ""
 
     #Generic name of the streamer that will be used for all notifications
-    streamerName = "FlexieFae"
+    streamerName = "LitneySpears"
 
     #Usernames associated with each platform - if not applicable leave an empty array. i.e. cbUserName = []
     #If the streamer has multiple accounts for a paltform, add an extra username to the array i.e. cbUserName = ['user1','user2']
-    kickUserName = ['flexiefae']
-    cbUserName = ['heynicole01']
-    fansUserName = ['FlexieFae']
-    ofUserName = []
-    ytUserName = ['FlexieFae']
-    twitchUserName = ['flexiefae']
+    kickUserName = ['LitneySpears']
+    cbUserName = []
+    fansUserName = ['Litneyspearsx']
+    ofUserName = ['litneyspearsx','litneyspearsfree']
+    ytUserName = ['litneyspears_']
+    twitchUserName = ['litneyspears_']
     cam4UserName = []
     mfcUserName = []
     bcUserName = []
     scUserName = []
     epUserName = []
 
-    twitchUrl = f"https://www.twitch.tv/flexiefae" #Add a valid twitch URL here even if you streamer doesn't have twitch or else the presence won't update properly
+    twitchUrl = f"https://www.twitch.tv/litneyspears_" #Add a valid twitch URL here even if you streamer doesn't have twitch or else the presence won't update properly
 
     #affiliate api link to see online users in cb https://chaturbate.com/affiliates/promotools/api_usersonline/
     # This makes assumptions thaty may not be true for your model, so go to the link above and make an API url for yourself. 
@@ -164,7 +168,7 @@ class Constants:
     epEmbedColor = "#f03d4c"
 
     # Mainly Used in stream-status command
-    linkTreeUrl = "https://allmylinks.com/flexiefae"
+    linkTreeUrl = "https://allmylinks.com/litneyspears"
     
     # Titles for announcement embeds
     # Titles for platforms that have optional titles or no titles at all
