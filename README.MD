@@ -59,38 +59,64 @@
 ### How to set up the bot:
 
 1. Go to https://discord.com/developers and set up an app and get a token. Put that token in a file called token (no file extension needed), and put that file in a subfolder called secrets.
-2. At https://discord.com/developers/ - generate an invite code under oauth2 to invite your bot to your server. Under scope make sure bot is checked, and maybe commands?
-    Give the bot permissions you want it to have. At minimum it'll need to be able to post messages
+2. At https://discord.com/developers/ - generate an invite code under oauth2 to invite your bot to your server. Under scope make sure bot is checked.
+    Give the bot permissions you want it to have. At minimum it'll need to be able to post messages and embeds
 3. Go to the bot section in the developers portal and turn on all the intents.
 4. In the Constants.py file, change the GUILD_ID value to the guild id of your server, and each platform NOTIFICATION_CHANNEL_ID to the channel ID you want alerts posted to.
     To easily get both of these IDs, in discord advanced options turn on developer mode. After that you can right click servers/channels and a new option to copy the IDs will be available.
     Also edit and add vairus URLs to your streamer in Constants.py. Everything is described in comments.
-5. Make sure you have python 3.10 or better installed.
-    - make sure you have Chrome/Chromium and Xvfb installed. Xephyr,Xvnc or another browser may work but not tested. 
-    - run command 'pip install -r requirements.txt'
-6. Generate the database with 'python GenerateDatabase.py' or 'python3 GenerateDatabase.py' 
-7. Replace images in the image folder with those of your streamer, but keep same file names.
+5. Generate the database with 'python GenerateDatabase.py' or 'python3 GenerateDatabase.py'
+6. Replace images in the image folder with those of your streamer, but keep same file names.
     - images/errIcon.png - icon used for embeds if there is an issue getting one from the platform, or if one doesn't exist
     - images/twitErrImg.jpg - default photo used for embeds if no other thumbnail or photo can be grabbed from the image list (if its empty)
     - images/avatars/calmStreamer.png - Bot avatar if streamer has streamed within the MIN_TIME_BEFORE_AVATAR_CHANGE time frame (default 48 hours)
     - images/avatars/pissedStreamer.png - Bot avatar if streamer hasn't streamed within the MIN_TIME_BEFORE_AVATAR_CHANGE time frame
-8. Start the server: 'python3 run.py' or 'python run.py'
+7. Make sure you have python 3.10 installed.
+    - make sure you have Chrome/Chromium another browser may work but not tested. 
+    - Make sure Xvfb is installed if on Linux. Xephyr, or Xvnc may work but untested 
+    - run command 'pip install -r requirements.txt' 
+8. Start the bot: 'python3 run.py' or 'python run.py'
+
+### How To: Docker Compose or Portainer
+
+1. Install Docker
+2. Install Docker Compose and/or Portainer
+3. Complete steps 1-6 above in the "how to set up the bot" section
+4. Edit docker-compose.yml and follow the commented instructions
+5. If using docker compose, from the Sassbot directory start it via "sudo docker compose up -d"
+6. If using Portainer go to stacks > add stack 
+    -  Copy paste over the non commented code from docker-compose.yml into the window
+    -  Deploy Stack
 
 ### Known Issues
 
 1. If multiple accounts are streaming on the same platform at the same time, /rebroadcast will only show an announcement for one of the accounts.
-2. Cam4 api ban your IP if you make too many calls from the same ip. May need to switch methods in the future.
-3. Fansly will 404 you for a period of time if you make too many requests from the same ip
+2. Cam4 will ban your IP if you make too many calls from the same ip to the api. Make check times very long and/or rotate your ip
+3. Fansly will 404 you for a period of time if you make too many requests from the same ip.
+4. If the requesting ip is in a state that requires age verification, some of these checkers wont work. 
 
 ### Update History
-- 9/23/2024
+- 10/11/2024
+    - added workflow to auto make docker images. They are
+        - ghcr.io/bombg/sassbot:latest
+        - ghcr.io/bombg/sassbot:latest-arm
+    - Moving prints over to pythyon logging library
+    - Improved some exception handling
+    - Fixed file descriptor leak-- happened over a week ago but i'm confident it's gone now.
+    - added newer versions of hikari/tanjun to requirements. No code changes so old will still work too for now. 
+- 10/3/2024
+    - Fixed MFC, SC, BC checkers
+- 9/24/2024
     - Checkers that once used selenium now use nodriver instead. Chromedriver no longer required or supported
+        - works with Chromium as well as Chrome. Other browsers are untested.
     - Added more reqirements nodriver,PyVirtualDisplay. Install them via the command 'pip install -U -r requirements.txt' 
     - Xvfb is now required if using Linux. Xephyr or Xvnc may work but not tested.
     - Fixed a long standing bug with Chaturbate checker I just noticed; whoops. 
     - One browser open at a time limit to work better on slower machines (have it working on a Raspberrypi 3B+)
     - Removed support for twitter (it's been broken for a while anyway)
     - Each platform has its own check timer in constants now. Instead of normal/long
+    - Updated Dockerfile to reflect the new changes
+    - Fixed Twitch checker
 - 8/02/2024
     - Added Docker support - Thanks jasmeralia!
     - Added /test-permission command that takes the channelId you wish to test permissions with as an input.
