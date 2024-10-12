@@ -18,7 +18,7 @@ import re
 import MiruViews
 import alluka
 import asyncio
-from EmbedCreator import EmbedCreator
+from utils.EmbedCreator import EmbedCreator
 
 component = tanjun.Component()
 

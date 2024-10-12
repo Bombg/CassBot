@@ -1,5 +1,5 @@
 import asyncio
-from EmbedCreator import EmbedCreator
+from utils.EmbedCreator import EmbedCreator
 try:
     from AppConstants import Constants as Constants
 except ImportError:
