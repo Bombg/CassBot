@@ -59,7 +59,7 @@ async def platformChecker(isOnlineFunc: Callable,platformNotifFunc: Callable, us
     if isOnline and StaticMethods.isRerun(title):
         isOnline = isOnline if db.getRerunAnnounce() else False
         isRerun = True
-    logger.debug(platformName + " +Offline\-Online: " + str((-1 * secondsSinceStreamStartTime) if isOnline else secondsSinceStreamEndTime))
+    logger.debug(platformName + " +Offline|-Online: " + str((-1 * secondsSinceStreamStartTime) if isOnline else secondsSinceStreamEndTime))
     if isOnline == True:
         db.setRerun(isRerun, platformName)
         if secondsSinceStreamEndTime >= Constants.WAIT_BETWEEN_MESSAGES and secondsSinceLastMessage >= Constants.WAIT_BETWEEN_MESSAGES and streamEndTime >= streamStartTime:
