@@ -6,7 +6,7 @@ try:
     from AppConstants import Constants as Constants
 except ImportError:
     from DefaultConstants import Constants as Constants
-from bot import build_bot
+from utils.bot import build_bot
 import colorlog
 
 logger = logging.getLogger(__name__)
