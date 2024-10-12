@@ -4,7 +4,7 @@ import time
 import datetime
 from datetime import date
 from datetime import timedelta
-import StaticMethods
+import utils.StaticMethods as StaticMethods
 import logging
 try:
     from AppConstants import Constants as Constants

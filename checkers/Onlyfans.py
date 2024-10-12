@@ -8,7 +8,7 @@ import nodriver as uc
 import NoDriverBrowserCreator as ndb
 import globals
 import logging
-from StaticMethods import GetThumbnail
+from utils.StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)

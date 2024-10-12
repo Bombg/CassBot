@@ -19,7 +19,7 @@ import checkers.Youtube as Youtube
 import checkers.Cam4 as Cam4
 import globals
 import time
-import StaticMethods
+import utils.StaticMethods as StaticMethods
 from Notifications import Notifications
 from utils.Database import Database
 from typing import Callable

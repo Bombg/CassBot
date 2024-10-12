@@ -7,7 +7,7 @@ try:
 except ImportError:
     from DefaultConstants import Constants as Constants
 import time
-from StaticMethods import GetThumbnail
+from utils.StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)

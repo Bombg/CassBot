@@ -1,6 +1,6 @@
 import hikari.errors
 import tanjun
-import StaticMethods
+import utils.StaticMethods as StaticMethods
 import time
 try:
     from AppConstants import Constants as Constants

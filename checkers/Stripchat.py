@@ -7,7 +7,7 @@ except ImportError:
     from DefaultConstants import Constants as Constants
 from NoDriverBrowserCreator import getUserAgent
 import logging
-from StaticMethods import GetThumbnail
+from utils.StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)

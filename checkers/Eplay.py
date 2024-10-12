@@ -7,7 +7,7 @@ except ImportError:
 from bs4 import BeautifulSoup
 import json
 import logging
-from StaticMethods import GetThumbnail
+from utils.StaticMethods import GetThumbnail
 
 logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
