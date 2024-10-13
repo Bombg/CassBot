@@ -65,6 +65,7 @@
 4. In the Constants.py file, change the GUILD_ID value to the guild id of your server, and each platform NOTIFICATION_CHANNEL_ID to the channel ID you want alerts posted to.
     To easily get both of these IDs, in discord advanced options turn on developer mode. After that you can right click servers/channels and a new option to copy the IDs will be available.
     Also edit and add vairus URLs to your streamer in Constants.py. Everything is described in comments.
+    - After editing constants you can create a copy called AppConstants.py - This will be used before DefaultConstants.py. So you can pull changes without stashing or overwriting
 5. Generate the database with 'python GenerateDatabase.py' or 'python3 GenerateDatabase.py'
 6. Replace images in the image folder with those of your streamer, but keep same file names.
     - images/errIcon.png - icon used for embeds if there is an issue getting one from the platform, or if one doesn't exist
@@ -96,6 +97,14 @@
 4. If the requesting ip is in a state that requires age verification, some of these checkers wont work. 
 
 ### Update History
+- 10/12/2024
+    - Moved more things to config to constants
+        - Changing thumbnail behavior
+        - Changing default avatar/Icon paths/images
+    - Constants.py renamed to DefaultConstants.py 
+    - You can create your own version of Constants.py called AppConstants.py. Just copy over the contents of constants into this file, it's untracked and you can pull changes without stashing!
+        - AppConstants.py is used before DefaultConstants.py
+    - ghcr.io/bombg/sassbot:latest - now supports arm as well. The package ghcr.io/bombg/sassbot:latest-arm is no longer needed.
 - 10/11/2024
     - added workflow to auto make docker images. They are
         - ghcr.io/bombg/sassbot:latest

@@ -1,7 +1,7 @@
 class Constants:
     # COPY THIS FILE AND CREATE YOUR OWN VERSION NAMED AppConstants.py THAT WAY YOU CAN PULL CHANGES WITHOUT OVERWRITING SETTINGS
     TEST_SERVER = False
-    SASSBOT_LOG_LEVEL = 10 # DEBUG = 10, INFO = 20, WARNING = 30, ERROR = 40, CRITICAL = 50
+    SASSBOT_LOG_LEVEL = 20 # DEBUG = 10, INFO = 20, WARNING = 30, ERROR = 40, CRITICAL = 50
     OTHER_LIBRARIES_LOG_LEVEL = 20 # DEBUG = 10, INFO = 20, WARNING = 30, ERROR = 40, CRITICAL = 50
     if TEST_SERVER:
         GUILD_ID =313876691082674178 #Guild ID of the discord server
@@ -24,7 +24,7 @@ class Constants:
         CONFESS_REVIEW_COMMAND_ID = 1159423004346957834
 
         KICK_PROXY = ""
-        FANS_PROXY = "192.168.50.253:8888"
+        FANS_PROXY = "127.0.0.1:8888"
         OF_PROXY = ""
     else:
         GUILD_ID =1058859922219081778 #Guild ID of the discord server
@@ -47,7 +47,7 @@ class Constants:
         CONFESS_REVIEW_COMMAND_ID = 1159321755270250570
 
         KICK_PROXY = ""
-        FANS_PROXY = "172.18.0.2:8888"
+        FANS_PROXY = "127.0.0.1:8888"
         OF_PROXY = ""
 
     WAIT_BETWEEN_MESSAGES = 1800 # minimum amount of time in seconds the stream has to be offline before new notification messages. 
@@ -59,8 +59,8 @@ class Constants:
     TIME_BEFORE_REVIEW_RESET = 300 # Time a whitelisted person has to review a confession before its added back to the queue
     
     # Nodriver default for retries is 4, but for slow machines this could require a lot more (raspberry pi 3b+ tested with 20 and still fails occasionally)
-    NODRIVER_BROWSER_CONNECT_RETRIES = 35
-    NODRIVER_WAIT_MULTIPLIER = 10 # multiplier for nodriver waits. Make this longer for slower machines
+    NODRIVER_BROWSER_CONNECT_RETRIES = 25
+    NODRIVER_WAIT_MULTIPLIER = 8 # multiplier for nodriver waits. Make this longer for slower machines
 
     # Platform Check Timers - all in seconds
     KICK_CHECK_TIMER = 180
