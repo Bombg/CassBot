@@ -31,6 +31,9 @@ def isModelOnline(twitchChannelName):
             thumbUrlReq = requests.get(tempThumbUrl,allow_redirects=True)
             time.sleep(1)
             isOnlineJson = twitchJson['@graph'][0]['publication']['isLiveBroadcast']
+            logger.debug(f"IsOnline: {isOnlineJson}")
+            logger.debug(f"ThumbUrl: {tempThumbUrl}")
+            logger.debug(f"ThumbReqUrl:{thumbUrlReq.url}")
             if isOnlineJson and tempThumbUrl == thumbUrlReq.url:
                 tempThumbUrl = tempThumbUrl + "?" + str(int(time.time()))
                 isOnline = True
