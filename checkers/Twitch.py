@@ -34,7 +34,8 @@ def isModelOnline(twitchChannelName):
             logger.debug(f"IsOnline: {isOnlineJson}")
             logger.debug(f"ThumbUrl: {tempThumbUrl}")
             logger.debug(f"ThumbReqUrl:{thumbUrlReq.url}")
-            if isOnlineJson and tempThumbUrl == thumbUrlReq.url:
+            thumbnailGood = tempThumbUrl == thumbUrlReq.url if Constants.twitchCheckThumbnail else True
+            if isOnlineJson and thumbnailGood:
                 tempThumbUrl = tempThumbUrl + "?" + str(int(time.time()))
                 isOnline = True
     except requests.exceptions.ConnectTimeout:
