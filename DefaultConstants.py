@@ -232,7 +232,3 @@ class Constants:
     # Make them the same image if you don't want the feature to change anything 
     calmAvatar = 'images/avatars/calmStreamer.png'
     pissedAvatar = 'images/avatars/pissedStreamer.png'
-
-    # In some cases a Twitch channel will show online when they aren't. If that's the case turn this to TRUE.
-    # This checks the channel's thumbnail to see if it is actually online with the downside of it taking a while longer to show the streamer as online
-    twitchCheckThumbnail = False
