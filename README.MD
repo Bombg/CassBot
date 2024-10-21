@@ -100,6 +100,8 @@
 ### Update History
 - 10/20/2024
     - Added ManyVids Support
+        - Because of this many things have changed in Default/App Constants so they will need to be updated with new vars
+    - Change nodriver temp file behavior. Uses default behavior in windows
 - 10/19/2024
     - Improvements on Twitch checker to hopefully work more quickly
     - Improvements with nodriver temp folders (was previously taking up too much disk space)
