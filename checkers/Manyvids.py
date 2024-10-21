@@ -5,6 +5,7 @@ try:
 except ImportError:
     from DefaultConstants import Constants as Constants
 from utils.StaticMethods import GetThumbnail
+from utils.StaticMethods import GetProxies
 import logging
 import re
 
@@ -18,7 +19,7 @@ def isModelOnline(mvUserName):
     icon = Constants.defaultIcon
     pageUrl = f"https://www.manyvids.com/live/cam/{mvUserName.lower()}"
     if Constants.MV_PROXY:
-        page = requests.get(pageUrl, proxies=GetProxies())
+        page = requests.get(pageUrl, proxies=GetProxies(Constants.MV_PROXY))
     else:
         page = requests.get(pageUrl)
     soup = BeautifulSoup(page.content, "html.parser")
@@ -40,10 +41,3 @@ def GetIcon(soup:BeautifulSoup, mvUserName):
     if icon:
         icon = icon.group()
     return icon
-
-def GetProxies():
-    proxies = {
-    'http': f'{Constants.MV_PROXY}',
-    'https': f'{Constants.MV_PROXY}',
-    }
-    return proxies

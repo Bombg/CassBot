@@ -98,9 +98,11 @@
 4. If the requesting ip is in a state that requires age verification, some of these checkers wont work. 
 
 ### Update History
-- 10/20/2024
+- 10/21/2024
     - Added ManyVids Support
         - Because of this many things have changed in Default/App Constants so they will need to be updated with new vars
+    - Added proxy support for most of the checkers. Anything that doesn't use nodriver will use socks5
+    - changed requirements update them with 'pip install -U -r requirements.txt' 
     - Change nodriver temp file behavior. Uses default behavior in windows
 - 10/19/2024
     - Improvements on Twitch checker to hopefully work more quickly

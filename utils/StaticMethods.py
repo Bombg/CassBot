@@ -283,3 +283,10 @@ def GetThumbnail(tempThumbUrl, constantsThumbnail):
         thumbnail = tempThumbUrl
     
     return thumbnail
+
+def GetProxies(proxyIpPort):
+    proxies = {
+    'http': f'socks5://{proxyIpPort}',
+    'https': f'socks5://{proxyIpPort}'
+    }
+    return proxies
