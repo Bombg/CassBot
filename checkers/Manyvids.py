@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(Constants.SASSBOT_LOG_LEVEL)
 
 def isModelOnline(mvUserName):
-    title = "placeholder mv title"
+    title = Constants.mvDefaultTitle
     tempThumbUrl = ''
     isOnline = False
     icon = Constants.defaultIcon
