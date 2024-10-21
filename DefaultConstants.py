@@ -28,10 +28,10 @@ class Constants:
         # Kick/OF/Fansly use nodriver, which doesn't support authenticated proxies
         # All the other platforms assumes you're using a socks5 proxy, so you can leave out the socks5:// part
         # Commented out platforms don't support proxies 
-        KICK_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
-        FANS_PROXY = "127.0.0.1:8888" #Chrome/Chromium doesn't support authenticated proxies
-        OF_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
-        #CB_PROXY = "" # Everything below assumed is a socks5 proxy. Commented out lines don't support proxies yet
+        KICK_PROXY = "" # Chrome/Chromium doesn't support authenticated proxies
+        FANS_PROXY = "127.0.0.1:8888" # Chrome/Chromium doesn't support authenticated proxies
+        OF_PROXY = "" # Chrome/Chromium doesn't support authenticated proxies
+        #CB_PROXY = "" # Everything below assumed is a socks5 proxy.
         MV_PROXY = ""
         BC_PROXY = ""
         SC_PROXY = ""
@@ -65,10 +65,10 @@ class Constants:
         # Kick/OF/Fansly use nodriver, which doesn't support authenticated proxies
         # All the other platforms assumes you're using a socks5 proxy, so you can leave out the socks5:// part
         # Commented out platforms don't support proxies 
-        KICK_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
-        FANS_PROXY = "127.0.0.1:8888" #Chrome/Chromium doesn't support authenticated proxies
-        OF_PROXY = ""#Chrome/Chromium doesn't support authenticated proxies
-        #CB_PROXY = "" # Everything below assumed is a socks5 proxy
+        KICK_PROXY = "" # Chrome/Chromium doesn't support authenticated proxies
+        FANS_PROXY = "127.0.0.1:8888" # Chrome/Chromium doesn't support authenticated proxies
+        OF_PROXY = ""# Chrome/Chromium doesn't support authenticated proxies
+        #CB_PROXY = "" # Everything below assumed is a socks5 proxy.
         MV_PROXY = ""
         BC_PROXY = ""
         SC_PROXY = ""
