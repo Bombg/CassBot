@@ -23,7 +23,11 @@ class Constants:
         
         CONFESSION_COMMAND_ID = 1159423004346957835
         CONFESS_REVIEW_COMMAND_ID = 1159423004346957834
-
+        
+        # Leave an empty string if you don't wish to use a proxy for a checker.
+        # Kick/OF/Fansly use nodriver, which doesn't support authenticated proxies
+        # All the other platforms assumes you're using a socks5 proxy, so you can leave out the socks5:// part
+        # Commented out platforms don't support proxies 
         KICK_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
         FANS_PROXY = "127.0.0.1:8888" #Chrome/Chromium doesn't support authenticated proxies
         OF_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
@@ -56,7 +60,11 @@ class Constants:
         
         CONFESSION_COMMAND_ID = 1159321755270250571
         CONFESS_REVIEW_COMMAND_ID = 1159321755270250570
-
+        
+        # Leave an empty string if you don't wish to use a proxy for a checker.
+        # Kick/OF/Fansly use nodriver, which doesn't support authenticated proxies
+        # All the other platforms assumes you're using a socks5 proxy, so you can leave out the socks5:// part
+        # Commented out platforms don't support proxies 
         KICK_PROXY = "" #Chrome/Chromium doesn't support authenticated proxies
         FANS_PROXY = "127.0.0.1:8888" #Chrome/Chromium doesn't support authenticated proxies
         OF_PROXY = ""#Chrome/Chromium doesn't support authenticated proxies
