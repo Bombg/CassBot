@@ -102,7 +102,7 @@
     - Added ManyVids Support
         - Because of this many things have changed in Default/App Constants so they will need to be updated with new vars
     - Added proxy support for most of the checkers. Anything that doesn't use nodriver will use socks5
-    - changed requirements update them with 'pip install -U -r requirements.txt' 
+    - Changed requirements update them with 'pip install -U -r requirements.txt' 
     - Change nodriver temp file behavior. Uses default behavior in windows
     - Changed Dockerfile to improve size and fixed docker image to work with windows
 - 10/19/2024
